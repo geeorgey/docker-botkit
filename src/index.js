@@ -123,7 +123,7 @@ controller.on('interactive_message_callback', function(bot, message) {
 controller.on('slash_command', function(bot, message) {
   if (message.token !== process.env.VERIFICATION_TOKEN) return;
 
-  switch (message.text.split(' ')[0]) {
+  switch (message.command.slice(1)) {
     case 'choose':
       SlackBot.chooseLunch(bot, message);
       break;
